@@ -23,6 +23,14 @@ public class LoginAction extends Action {
 		String userPassword = user.getUserPassword();
 		// 返回结果
 		String loginResult = null;
+		
+		String code = request.getParameter("rand");
+		String rand = (String)request.getSession().getAttribute("rand");
+		if (!rand.equals(code)) {
+			loginResult = "LoginFailure";
+			return mapping.findForward(loginResult);
+		}
+		
 		//
 		UserDao userDao = new UserDao();
 		if (userDao.verifyLogin(userName, userPassword)) {
