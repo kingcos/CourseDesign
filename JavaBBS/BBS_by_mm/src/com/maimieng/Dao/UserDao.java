@@ -22,7 +22,7 @@ public class UserDao {
 
 	}
 
-	public Boolean verifyLogin(String userName, String userPassword) throws Exception {
+	public boolean verifyLogin(String userName, String userPassword) throws Exception {
 		connection = DatabaseConnection.getConnection();
 		String sql = "select * from user where UserName =? and UserPassword=?";
 		preparedStatement = connection.prepareStatement(sql);
@@ -32,7 +32,7 @@ public class UserDao {
 		return resultSet.next();
 	}
 
-	public Boolean verifyUserName(String userName) throws Exception {
+	public boolean verifyUserName(String userName) throws Exception {
 		connection = DatabaseConnection.getConnection();
 		String sql = "select UserName from user where UserName =?";
 		preparedStatement = connection.prepareStatement(sql);
