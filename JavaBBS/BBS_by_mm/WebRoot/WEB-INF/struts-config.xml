@@ -13,7 +13,7 @@
 	<action-mappings>
 		<action path="/register" name="UserForm" scope="request"
 			type="com.maimieng.Action.RegisterAction">
-			<forward name="RegisterSuccess" path="/listMs.jsp"></forward>
+			<forward name="RegisterSuccess" path="/listms.do"></forward>
 			<forward name="RegisterFailure" path="/jsp/Register/Failure.jsp"></forward>
 		</action>
 
