@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" 
+	"http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="UserForm" type="com.maimieng.Bean.UserForm"></form-bean>
+		<form-bean name="MessageForm" type="com.maimieng.Bean.MessageForm"></form-bean>
+		<form-bean name="ReplyForm" type="com.maimieng.Bean.ReplyForm"></form-bean>
+	</form-beans>
+
+	<action-mappings>
+		<action path="/register" name="UserForm" scope="request"
+			type="com.maimieng.Action.RegisterAction">
+			<forward name="RegisterSuccess" path="/listMs.jsp"></forward>
+			<forward name="RegisterFailure" path="/jsp/Register/Failure.jsp"></forward>
+		</action>
+
+		<action path="/login" name="UserForm" scope="request"
+			type="com.maimieng.Action.LoginAction">
+			<forward name="LoginSuccess" path="/listms.do"></forward>
+			<forward name="LoginFailure" path="/jsp/Login/Failure.jsp"></forward>
+		</action>
+
+		<action path="/createms" name="MessageForm" scope="request"
+			type="com.maimieng.Action.CreateMsAction">
+			<forward name="Success" path="/listms.do"></forward>
+		</action>
+
+		<action path="/listms" name="MessageForm" scope="request"
+			type="com.maimieng.Action.ListMsAction">
+			<forward name="Success" path="/listMs.jsp"></forward>
+		</action>
+
+		<action path="/getms" name="MessageForm" scope="request"
+			type="com.maimieng.Action.GetMessageAction">
+			<forward name="Success" path="/listre.do"></forward>
+		</action>
+
+		<action path="/replyms" name="ReplyForm" scope="request"
+			type="com.maimieng.Action.ReplyMsAction">
+			<forward name="Success" path="/listre.do"></forward>
+		</action>
+		
+		<action path="/listre" name="ReplyForm" scope="request"
+			type="com.maimieng.Action.ListReAction">
+			<forward name="Success" path="/view.jsp"></forward>
+		</action>
+	</action-mappings>
+</struts-config>
