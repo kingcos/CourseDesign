@@ -17,16 +17,23 @@ public class CreateMsAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		// 存储执行结果
+		String result = "Failure";
+		// 拿到表单
 		MessageForm messageForm = (MessageForm) form;
-		
+		// 取得表单信息
+		// 表单中没有的 msUserName 从 Session 获取
 		String msUserName = (String) request.getSession().getAttribute("userName");
 		String msTitle = messageForm.getMsTitle();
 		String msContent = messageForm.getMsContent();
+		// 时间自动默认当前时间
 		Date msDate = new Date();
-		
+		// 调用 DAO
 		MessageDao messageDao = new MessageDao();
-		messageDao.saveMessage(msUserName, msDate, msTitle, msContent);
-		return mapping.findForward("Success");
+		if (messageDao.saveMessage(msUserName, msDate, msTitle, msContent)) {
+			result = "Success";
+		}
+		// 返回结果
+		return mapping.findForward(result);
 	}
 }
