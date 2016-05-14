@@ -17,9 +17,11 @@ public class ListMsAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		// 存储执行结果
+		String result = "Success";
 		MessageDao messageDao = new MessageDao();
 		List<MessageForm> list = messageDao.listMessages();
 		request.getSession().setAttribute("msList", list);
-		return mapping.findForward("Success");
+		return mapping.findForward(result);
 	}
 }

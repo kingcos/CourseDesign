@@ -15,15 +15,18 @@ public class GetMessageAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		// 存储执行结果
+		String result = "Failure";
 		MessageForm messageForm = (MessageForm) form;
 
 		int msID = Integer.parseInt(request.getParameter("msID"));
 		MessageDao messageDao = new MessageDao();
 		messageForm = messageDao.getMessage(msID);
-		request.getSession().setAttribute("MessageForm", messageForm);
-		request.getSession().setAttribute("MsID", messageForm.getMsID());
-		
-		return mapping.findForward("Success");
+		if (messageForm != null) {
+			result = "Success";
+			request.getSession().setAttribute("MessageForm", messageForm);
+			request.getSession().setAttribute("MsID", messageForm.getMsID());
+		}
+		return mapping.findForward(result);
 	}
 }
