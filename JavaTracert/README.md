@@ -8,9 +8,9 @@
 > <br>
 > 下载后导入 Eclipse
 > <br>
-> **注意：请将 93 行 API Key 替换为自己百度 APIStore 的 API Key**
+> **注意：请将 93 行 API Key 替换为自己[百度 APIStore(http://apistore.baidu.com)](http://apistore.baidu.com) 的 API Key**
 
-### 技术栈
+### 技能树
 
 - Java SE
 - Batch Process
