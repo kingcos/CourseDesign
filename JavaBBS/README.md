@@ -9,7 +9,7 @@
 - [Powered by Struts 1.3](./BBS_by_mm)
  - 技术栈：
  - Java
- - Struts 1.3
+ - Struts 1.x
  - MySQL
  - HTML
 
