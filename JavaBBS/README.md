@@ -7,7 +7,7 @@
 ### 版本
 
 - [Powered by Struts 1.3](./BBS_by_mm)
- - 技术栈
+ - 技术栈：
  - Java
  - Struts 1.3
  - MySQL
