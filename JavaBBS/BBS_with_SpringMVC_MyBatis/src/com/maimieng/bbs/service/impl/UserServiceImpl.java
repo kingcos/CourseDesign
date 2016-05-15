@@ -9,11 +9,10 @@ import com.maimieng.bbs.po.UserVo;
 import com.maimieng.bbs.service.UserService;
 
 public class UserServiceImpl implements UserService {
-
-	@Autowired
-	private UserMapperCustom userMapperCustom;
 	@Autowired
 	private UserMapper userMapper;
+	@Autowired
+	private UserMapperCustom userMapperCustom;
 
 	@Override
 	public boolean saveUser(UserVo userVo) throws Exception {
