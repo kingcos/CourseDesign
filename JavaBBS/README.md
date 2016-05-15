@@ -4,18 +4,26 @@
 
 具体相关内容，详见 [http://maimieng.com/2016/programming/jbbs/](http://maimieng.com/2016/programming/jbbs/)。
 
-### 版本
-
-- [Powered by Struts 1.3](./BBS_by_mm)
- - 技术栈：
- - Java EE
- - Struts 1.x
- - MySQL
- - HTML
-
 > TL;DR
 > <br>
 > 下载后导入 Eclipse EE
+
+### [Powered by Struts 1.3](./BBS_by_mm)
+
+#### 技术栈
+
+- Java EE
+- Struts 1.x
+- MySQL
+- HTML
+
+#### 已知 Bug
+
+- 未登录用户也可看到留言及回复，也可留言回复（没有设置过滤器1）
+- 注册时不输入用户名，密码也可注册（未设置非空字段及相应处理）
+- 登录失败提示信息不全
+
+*以上 Bug 修改只是时间问题，预计将在两日内修复*
 
 ## MIT License
 
