@@ -9,22 +9,12 @@ import com.maimieng.bbs.mapper.MessageMapperCustom;
 import com.maimieng.bbs.po.Message;
 import com.maimieng.bbs.po.MessageVo;
 import com.maimieng.bbs.service.MessageService;
-import com.maimieng.bbs.service.UserService;
 
 public class MessageServiceImpl implements MessageService {
 	@Autowired
 	private MessageMapper messageMapper;
 	@Autowired
 	private MessageMapperCustom messageMapperCustom;
-	
-//	@Override
-//	public boolean verifyLogin(UserVo userVo) throws Exception {
-//		boolean flag = false;
-//		if (userMapperCustom.verifyLogin(userVo) != null) {
-//			flag = true;
-//		}
-//		return flag;
-//	}
 	
 	@Override
 	public boolean saveMessage(MessageVo messageVo) throws Exception {
@@ -42,8 +32,7 @@ public class MessageServiceImpl implements MessageService {
 
 	@Override
 	public Message getMessage(Integer msid) throws Exception {
-
-		return null;
+		return messageMapperCustom.getMessage(msid);
 	}
 
 }

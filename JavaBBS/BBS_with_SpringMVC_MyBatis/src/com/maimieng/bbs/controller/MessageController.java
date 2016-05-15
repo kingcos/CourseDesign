@@ -41,4 +41,15 @@ public class MessageController {
 		}
 		return result;
 	}
+	
+	@RequestMapping("/getms")
+	public ModelAndView getms(HttpServletRequest request, Integer id) throws Exception {
+		Message message = messageService.getMessage(id);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("message", message);
+		modelAndView.setViewName("MessageDetail");
+		
+		return modelAndView;
+	}
 }

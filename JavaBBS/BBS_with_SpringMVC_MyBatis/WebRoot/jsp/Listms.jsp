@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,14 +22,15 @@
 				<td width="300">时间</td>
 				<td width="100">操作</td>
 			</tr>
-
 			<c:forEach items="${messagelist }" var="ms">
 				<tr align="center">
-					<td>${ms.mstitle }</td>
-					<td>${ms.msusername }</td>
-					<td><fmt:formatDate value="${ms.msdate }"
-							pattern="yyyy-MM-dd HH:mm:ss" /></td>
-					<td>${ms.mscontent }</td>
+					<form method="post" action="getms.action?id=${ms.msid }">
+						<td>${ms.mstitle }</td>
+						<td>${ms.msusername }</td>
+						<td><fmt:formatDate value="${ms.msdate }"
+								pattern="yyyy-MM-dd HH:mm:ss" /></td>
+						<td><button type="submit">查看详情</button></td>
+					</form>
 				</tr>
 			</c:forEach>
 		</table>

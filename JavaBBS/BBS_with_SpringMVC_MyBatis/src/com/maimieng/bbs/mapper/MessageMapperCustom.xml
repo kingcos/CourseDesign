@@ -4,4 +4,8 @@
 	<select id="listMessages" resultType="Message">
 		select * from message order by msdate desc
 	</select>
+	
+	<select id="getMessage" parameterType="int" resultType="Message">
+		select * from message where msid=#{value}
+	</select>
 </mapper>
