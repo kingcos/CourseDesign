@@ -4,17 +4,23 @@
 
 调用批处理 `tracert` 来跟踪路由，并将跟踪到的 IP 地址调用百度 APIStore 的提供的免费接口进行查询，输出到终端。
 
-### 已知 Bug
-
-- 仅适用 Windows 系统
-- 由于固定截取 `tracert` 返回结果的第 8 列，因此会略过请求超时的跃点
-- 也是由于以上原因，可能在某些机器上获取不到，可单独测试 `tracert` 结果，将 IP 所在列数填到 bat 文件的 `tokens=` 后，默认为 8
-
 > TL;DR
 > <br>
 > 下载后导入 Eclipse
 > <br>
 > **注意：请将 93 行 API Key 替换为自己百度 APIStore 的 API Key**
+
+### 技术栈
+
+- Java SE
+- Batch Process
+- JSON
+
+### 已知 Bug
+
+- 仅适用 Windows 系统
+- 由于固定截取 `tracert` 返回结果的第 8 列，因此会略过请求超时的跃点
+- 也是由于以上原因，可能在某些机器上获取不到，可单独测试 `tracert` 结果，将 IP 所在列数填到 bat 文件的 `tokens=` 后，默认为 8
 
 ## MIT License
 
