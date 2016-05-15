@@ -10,7 +10,7 @@
 
 #### [Powered by Struts 1.3](./BBS_by_mm)
 
-##### 技术栈
+##### 技能树
 
 - Java EE
 - Struts 1.x
