@@ -22,7 +22,7 @@ public class UserController {
 		if (rand.equals(code)) {
 			if (userService.verifyLogin(userVo)) {
 				request.getSession().setAttribute("username", userVo.getUser().getUsername());
-				flag = "forward:listms.action";
+				flag = "redirect:listms.action";
 			}
 		}
 		return flag;

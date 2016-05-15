@@ -1,5 +1,6 @@
 package com.maimieng.bbs.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.maimieng.bbs.po.Message;
+import com.maimieng.bbs.po.MessageVo;
 import com.maimieng.bbs.service.MessageService;
 
 @Controller
@@ -25,5 +27,18 @@ public class MessageController {
 		modelAndView.setViewName("Listms");
 
 		return modelAndView;
+	}
+	
+	@RequestMapping("/createms")
+	public String createms(HttpServletRequest request, MessageVo messageVo) throws Exception {
+		String result = "Failure";
+		Date msDate = new Date();
+		String msUsername = (String) request.getSession().getAttribute("username");
+		messageVo.getMessage().setMsdate(msDate);
+		messageVo.getMessage().setMsusername(msUsername);
+		if (messageService.saveMessage(messageVo)) {
+			result = "redirect:listms.action";
+		}
+		return result;
 	}
 }

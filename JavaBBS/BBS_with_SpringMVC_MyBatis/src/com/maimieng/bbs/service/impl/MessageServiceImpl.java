@@ -6,12 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.maimieng.bbs.mapper.MessageMapper;
 import com.maimieng.bbs.mapper.MessageMapperCustom;
-import com.maimieng.bbs.mapper.UserMapper;
-import com.maimieng.bbs.mapper.UserMapperCustom;
 import com.maimieng.bbs.po.Message;
 import com.maimieng.bbs.po.MessageVo;
-import com.maimieng.bbs.po.User;
-import com.maimieng.bbs.po.UserVo;
 import com.maimieng.bbs.service.MessageService;
 import com.maimieng.bbs.service.UserService;
 
@@ -33,7 +29,9 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public boolean saveMessage(MessageVo messageVo) throws Exception {
 		boolean result = false;
-
+		if (messageMapper.insertSelective(messageVo.getMessage()) == 1) {
+			result = true;
+		}
 		return result;
 	}
 

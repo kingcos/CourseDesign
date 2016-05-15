@@ -26,7 +26,7 @@
 				<tr>
 					<td>验证码：</td>
 					<td><label> <input type="text" name="rand" /><img
-							border=0 src="Image.jsp">
+							border=0 src="jsp/Image.jsp">
 					</label></td>
 				</tr>
 				<tr>
@@ -38,7 +38,7 @@
 			</table>
 		</form>
 		<hr />
-		<a href="Register.jsp">注册</a>
+		<a href="jsp/Register.jsp">注册</a>
 	</center>
 </body>
 </html>
