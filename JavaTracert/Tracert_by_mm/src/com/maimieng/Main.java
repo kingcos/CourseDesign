@@ -90,7 +90,7 @@ public class Main {
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
 			// 填入apikey到HTTP header
-			connection.setRequestProperty("apikey", "eafbfcdd23787909ed9b2d62fa008333");
+			connection.setRequestProperty("apikey", "!!! 替换为自己的 API Key !!!");
 			connection.connect();
 			InputStream is = connection.getInputStream();
 			reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
