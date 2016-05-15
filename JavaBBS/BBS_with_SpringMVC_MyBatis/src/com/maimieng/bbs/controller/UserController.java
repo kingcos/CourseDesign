@@ -31,8 +31,7 @@ public class UserController {
 	@RequestMapping("/register")
 	public String register(HttpServletRequest request, UserVo userVo) throws Exception {
 		String flag = "Failure";
-		if (userService.verifyUserName(username)) {
-			
+		if (userService.saveUser(userVo)) {
 			request.getSession().setAttribute("username", userVo.getUser().getUsername());
 			flag = "Success";
 		}

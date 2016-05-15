@@ -9,15 +9,22 @@ import com.maimieng.bbs.po.UserVo;
 import com.maimieng.bbs.service.UserService;
 
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserMapperCustom userMapperCustom;
 	@Autowired
 	private UserMapper userMapper;
-	
+
 	@Override
-	public int saveUser(User user) throws Exception {
-		return userMapper.insertSelective(user);
+	public boolean saveUser(UserVo userVo) throws Exception {
+		boolean result = false;
+		User user = userMapperCustom.verifyUserName(userVo.getUser().getUsername());
+		if (user == null) {
+			if (userMapper.insertSelective(userVo.getUser()) == 1) {
+				result = true;
+			}
+		}
+		return result;
 	}
 
 	@Override
@@ -29,16 +36,4 @@ public class UserServiceImpl implements UserService {
 		return flag;
 	}
 
-	@Override
-	public boolean verifyUserName(String username) throws Exception {
-		boolean flag = false;
-		User user = new User();
-		user.setUsername(username);
-		if (userMapperCustom.verifyUserName(username) != null) {
-			flag = true;
-		}
-		return flag;
-	}
-	
-	
 }

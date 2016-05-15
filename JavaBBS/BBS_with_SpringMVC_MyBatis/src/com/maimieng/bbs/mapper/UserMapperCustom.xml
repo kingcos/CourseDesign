@@ -6,6 +6,6 @@
 	</select>
 
 	<select id="verifyUserName" parameterType="String" resultType="User">
-		select * from user where UserName =#{value}
+		select * from user where UserName =#{username}
 	</select>
 </mapper>
