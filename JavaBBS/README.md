@@ -4,6 +4,10 @@
 
 具体相关内容，详见 [http://maimieng.com/2016/programming/jbbs/](http://maimieng.com/2016/programming/jbbs/)。
 
+### 版本
+
+- [Powered by Struts 1.3](./BBS_by_mm)
+
 > TL;DR
 > <br>
 > 下载后导入 Eclipse EE
