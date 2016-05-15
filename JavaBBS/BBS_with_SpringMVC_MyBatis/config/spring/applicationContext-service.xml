@@ -15,5 +15,5 @@
 
 	<bean id="userService" class="com.maimieng.bbs.service.impl.UserServiceImpl"></bean>
 	<bean id="messageService" class="com.maimieng.bbs.service.impl.MessageServiceImpl"></bean>
-	<!-- <bean id="replyService" class="com.maimieng.bbs.service.impl.ReplyServiceImpl"></bean> -->
+	<bean id="replyService" class="com.maimieng.bbs.service.impl.ReplyServiceImpl"></bean>
 </beans>

@@ -12,15 +12,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.maimieng.bbs.po.Message;
 import com.maimieng.bbs.po.MessageVo;
+import com.maimieng.bbs.po.Reply;
 import com.maimieng.bbs.service.MessageService;
+import com.maimieng.bbs.service.ReplyService;
 
 @Controller
 public class MessageController {
 	@Autowired
-	MessageService messageService;
+	private MessageService messageService;
+	@Autowired
+	private ReplyService replyService;
 
 	@RequestMapping("/listms")
-	public ModelAndView listms(HttpServletRequest request) throws Exception {
+	public ModelAndView listms() throws Exception {
 		List<Message> list = messageService.listMessages();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("messagelist", list);
@@ -43,11 +47,13 @@ public class MessageController {
 	}
 	
 	@RequestMapping("/getms")
-	public ModelAndView getms(HttpServletRequest request, Integer id) throws Exception {
+	public ModelAndView getms(Integer id) throws Exception {
 		Message message = messageService.getMessage(id);
+		List<Reply> list = replyService.listReply(id);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("message", message);
+		modelAndView.addObject("replylist", list);
 		modelAndView.setViewName("MessageDetail");
 		
 		return modelAndView;
