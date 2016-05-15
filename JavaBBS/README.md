@@ -14,7 +14,7 @@
 
 - Java EE
 - Struts 1.x
-- MySQL
+- SQL
 - HTML
 
 ##### 已知 Bug
