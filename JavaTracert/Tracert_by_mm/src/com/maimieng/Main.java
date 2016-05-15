@@ -63,7 +63,7 @@ public class Main {
 	public List<String> tracert(String ip) {
 		List<String> ipList = new ArrayList<String>();
 		try {
-			ProcessBuilder pb = new ProcessBuilder("source\\demo.bat");
+			ProcessBuilder pb = new ProcessBuilder("bat\\demo.bat");
 			pb.environment().put("ip", ip);
 			Process p = pb.start();
 
