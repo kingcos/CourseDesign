@@ -2,7 +2,7 @@
 
 ## 关于
 
-具体相关内容，详见 [http://maimieng.com/2016/programming/jbbs/](http://maimieng.com/2016/programming/jbbs/)。
+具体相关内容，详见 [http://maimieng.com/2016/7/](http://maimieng.com/2016/7/)。
 
 > TL;DR
 > <br>
