@@ -39,6 +39,10 @@
 
 *以上 Bug 修改只是时间问题，预计将在两日内修复*
 
+##### 注意
+
+MyBatis 版本改装为 iBlog 形式，界面进行了一些美化，但 Bug 仍未修复。
+
 ## MIT License
 
 Copyright (c) [2016] [kingcos]
