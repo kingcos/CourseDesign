@@ -10,7 +10,7 @@
 	<h1>退出成功</h1>
 	<%
 		session.invalidate();
-		// response.sendRedirect("/");
+		response.sendRedirect("index.jsp");
 	%>
 </body>
 </html>

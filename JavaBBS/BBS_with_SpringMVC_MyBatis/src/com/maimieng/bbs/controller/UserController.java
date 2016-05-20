@@ -17,12 +17,14 @@ public class UserController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, UserVo userVo) throws Exception {
 		String flag = "Failure";
-		String code = request.getParameter("rand");
-		String rand = (String) request.getSession().getAttribute("rand");
-		if (rand.equals(code)) {
+//		String code = request.getParameter("rand");
+//		String rand = (String) request.getSession().getAttribute("rand");
+//		if (rand.equals(code)) {
+		if (true) {
 			if (userService.verifyLogin(userVo)) {
 				request.getSession().setAttribute("username", userVo.getUser().getUsername());
-				flag = "redirect:listms.action";
+//				flag = "redirect:listms.action";
+				flag = "index";
 			}
 		}
 		return flag;
@@ -33,7 +35,8 @@ public class UserController {
 		String flag = "Failure";
 		if (userService.saveUser(userVo)) {
 			request.getSession().setAttribute("username", userVo.getUser().getUsername());
-			flag = "redirect:listms.action";
+//			flag = "redirect:listms.action";
+			flag = "index";
 		}
 		return flag;
 	}
