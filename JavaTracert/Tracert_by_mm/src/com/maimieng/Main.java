@@ -6,8 +6,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -20,7 +18,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		Main d = new Main();
 		in = new Scanner(System.in);
-		System.out.println("输入 tracert 网址，例如 www.nyist.net");
+		System.out.println("输入 tracert 网址，例如 www.maimieng.com");
 		String website = in.nextLine();
 		System.out.println("正在 tracert 请等待");
 		List<String> ips = d.tracert(website.trim());
@@ -70,7 +68,7 @@ public class Main {
 			BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String strRead;
 			while ((strRead = br.readLine()) != null) {
-//				System.out.println(strRead);
+				// System.out.println(strRead);
 				ipList.add(strRead);
 			}
 		} catch (Exception e) {
@@ -107,14 +105,4 @@ public class Main {
 		return result;
 	}
 
-	public static String unicodeToString(String str) {
-		Pattern pattern = Pattern.compile("(\\\\u(\\p{XDigit}{4}))");
-		Matcher matcher = pattern.matcher(str);
-		char ch;
-		while (matcher.find()) {
-			ch = (char) Integer.parseInt(matcher.group(2), 16);
-			str = str.replace(matcher.group(1), ch + "");
-		}
-		return str;
-	}
 }
