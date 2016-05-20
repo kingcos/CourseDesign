@@ -6,10 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>注册</title>
 
-<link rel="stylesheet" href="css/register-style.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/jsp/css/register-style.css">
 
-<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript" src="js/easyform.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/easyform.js"></script>
 <style>
 * {
 	margin: 0;
@@ -127,7 +127,7 @@ a, img {
 			<div class="buttons">
 				<input value="注 册" type="submit"
 					style="margin-right: 20px; margin-top: 20px;"> <input
-					value="登录" type="button" onclick="window.location='Login.jsp'"
+					value="登录" type="button" onclick="window.location='<%=request.getContextPath()%>/jsp/Login.jsp'"
 					style="margin-right: 45px; margin-top: 20px;">
 			</div>
 
@@ -145,13 +145,13 @@ a, img {
 	<div class="side">
 		<ul>
 			<li><a href="javascript:void(0);"><div class="sidebox">
-						<img src="images/side_icon01.png">QQ
+						<img src="<%=request.getContextPath()%>/jsp/images/side_icon01.png">QQ
 					</div></a></li>
 			<li><a href="javascript:void(0);"><div class="sidebox">
-						<img src="images/side_icon02.png">新浪微博
+						<img src="<%=request.getContextPath()%>/jsp/images/side_icon02.png">新浪微博
 					</div></a></li>
 			<li style="border: none;"><a href="javascript:goTop();"
-				class="sidetop"><img src="images/side_icon03.png"></a></li>
+				class="sidetop"><img src="<%=request.getContextPath()%>/jsp/images/side_icon03.png"></a></li>
 		</ul>
 	</div>
 	<script>
