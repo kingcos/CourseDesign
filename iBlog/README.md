@@ -1,29 +1,13 @@
-# Java BBS
+# iBlog
 
 ## 关于
 
-具体相关内容，详见 [http://maimieng.com/2016/7/](http://maimieng.com/2016/7/)。
+该项目是基于 [BBS_with_SpringMVC_MyBatis](https://github.com/kingcos/CourseDesign/tree/master/JavaBBS/BBS_with_SpringMVC_MyBatis) 改写而成。
+其中，照片素材均为本人所拍。
 
 > TL;DR
 > <br>
 > 下载后导入 Eclipse EE
-
-#### [Powered by Struts 1.3](./BBS_by_mm)
-
-##### 技能树
-
-- Java EE
-- Struts 1.x
-- SQL
-- HTML
-
-##### 已知 Bug
-
-- 未登录用户也可看到留言及回复，也可留言回复（没有设置过滤器）
-- 注册时不输入用户名，密码也可注册（未设置非空字段及相应处理）
-- 登录失败提示信息不全
-
-#### [Powered by Spring MVC + MyBatis](./BBS_with_SpringMVC_MyBatis)
 
 ##### 技能树
 
@@ -32,12 +16,8 @@
 - MyBatis
 - SQL
 - HTML
-
-##### 已知 Bug
-
-同上
-
-*以上 Bug 修改只是时间问题，预计将在两日内修复*
+- CSS
+- JavaScript
 
 ## MIT License
 
