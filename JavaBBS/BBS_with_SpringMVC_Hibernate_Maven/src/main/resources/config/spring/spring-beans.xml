@@ -10,12 +10,12 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
-	<bean id="userManagerBase" class="com.maimieng.entity.UserManagerImpl">
+	<!-- <bean id="userManagerBase" class="com.tgb.manager.UserManagerImpl">
 		<property name="userDao" ref="userDao"></property>
-	</bean>
+	</bean> -->
 	
 	<!-- 此处为代理 -->
-	<bean name="userManager" parent="transactionProxy">
+	<!-- <bean name="userManager" parent="transactionProxy">
 		<property name="target" ref="userManagerBase"></property>
-	</bean>
+	</bean> -->	
 </beans>

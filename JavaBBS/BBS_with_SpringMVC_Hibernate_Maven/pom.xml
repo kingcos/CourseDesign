@@ -21,7 +21,6 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<!-- Hibernate -->
@@ -51,7 +50,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+	
 		<!-- Standard -->
 		<dependency>
 			<groupId>taglibs</groupId>
@@ -59,33 +58,8 @@
 			<version>1.1.2</version>
 		</dependency>
 
-		<!-- JSP api -->
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
-		</dependency>
-
-		<!-- Jetty -->
-		<!-- <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-server</artifactId> 
-			<version>9.3.8.v20160314</version> </dependency> -->
-
 	</dependencies>
 	<build>
 		<finalName>BBS_with_SpringMVC_Hibernate_Maven</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<url>http://localhost:8080/manager/text</url>
-					<username>admin</username>
-					<password>admin</password>
-					<path>/${project.artifactId}</path>
-				</configuration>
-			</plugin>
-		</plugins>
 	</build>
-
 </project>
