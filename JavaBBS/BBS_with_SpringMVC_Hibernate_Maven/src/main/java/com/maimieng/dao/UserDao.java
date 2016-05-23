@@ -1,5 +1,9 @@
 package com.maimieng.dao;
 
-public class UserDao {
+import com.maimieng.entity.User;
 
+public interface UserDao {
+	public boolean register(User user);
+	public boolean login(User user);
+	
 }

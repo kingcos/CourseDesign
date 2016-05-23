@@ -54,21 +54,7 @@ public class MessageController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("message", message);
 		modelAndView.addObject("replylist", list);
-//		modelAndView.setViewName("MessageDetail");
-		modelAndView.setViewName("single");
-		
-		return modelAndView;
-	}
-	
-	@RequestMapping("/getabout")
-	public ModelAndView getabout() throws Exception {
-		Integer id = 1;
-		List<Reply> list = replyService.listReply(id);
-		
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("replylist", list);
-//		modelAndView.setViewName("MessageDetail");
-		modelAndView.setViewName("single");
+		modelAndView.setViewName("MessageDetail");
 		
 		return modelAndView;
 	}

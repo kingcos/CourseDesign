@@ -6,8 +6,6 @@
     <result column="UserName" property="username" jdbcType="VARCHAR" />
     <result column="UserPassword" property="userpassword" jdbcType="VARCHAR" />
     <result column="UserEmail" property="useremail" jdbcType="VARCHAR" />
-    <result column="UserTel" property="usertel" jdbcType="VARCHAR" />
-    <result column="UserBlog" property="userblog" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    UserID, UserName, UserPassword, UserEmail, UserTel, UserBlog
+    UserID, UserName, UserPassword, UserEmail
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.maimieng.bbs.po.UserExample" >
     select
@@ -102,11 +100,9 @@
   </delete>
   <insert id="insert" parameterType="com.maimieng.bbs.po.User" >
     insert into user (UserID, UserName, UserPassword, 
-      UserEmail, UserTel, UserBlog
-      )
+      UserEmail)
     values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
-      #{useremail,jdbcType=VARCHAR}, #{usertel,jdbcType=VARCHAR}, #{userblog,jdbcType=VARCHAR}
-      )
+      #{useremail,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.maimieng.bbs.po.User" >
     insert into user
@@ -123,12 +119,6 @@
       <if test="useremail != null" >
         UserEmail,
       </if>
-      <if test="usertel != null" >
-        UserTel,
-      </if>
-      <if test="userblog != null" >
-        UserBlog,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
@@ -142,12 +132,6 @@
       </if>
       <if test="useremail != null" >
         #{useremail,jdbcType=VARCHAR},
-      </if>
-      <if test="usertel != null" >
-        #{usertel,jdbcType=VARCHAR},
-      </if>
-      <if test="userblog != null" >
-        #{userblog,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -172,12 +156,6 @@
       <if test="record.useremail != null" >
         UserEmail = #{record.useremail,jdbcType=VARCHAR},
       </if>
-      <if test="record.usertel != null" >
-        UserTel = #{record.usertel,jdbcType=VARCHAR},
-      </if>
-      <if test="record.userblog != null" >
-        UserBlog = #{record.userblog,jdbcType=VARCHAR},
-      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -188,9 +166,7 @@
     set UserID = #{record.userid,jdbcType=INTEGER},
       UserName = #{record.username,jdbcType=VARCHAR},
       UserPassword = #{record.userpassword,jdbcType=VARCHAR},
-      UserEmail = #{record.useremail,jdbcType=VARCHAR},
-      UserTel = #{record.usertel,jdbcType=VARCHAR},
-      UserBlog = #{record.userblog,jdbcType=VARCHAR}
+      UserEmail = #{record.useremail,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -207,12 +183,6 @@
       <if test="useremail != null" >
         UserEmail = #{useremail,jdbcType=VARCHAR},
       </if>
-      <if test="usertel != null" >
-        UserTel = #{usertel,jdbcType=VARCHAR},
-      </if>
-      <if test="userblog != null" >
-        UserBlog = #{userblog,jdbcType=VARCHAR},
-      </if>
     </set>
     where UserID = #{userid,jdbcType=INTEGER}
   </update>
@@ -220,9 +190,7 @@
     update user
     set UserName = #{username,jdbcType=VARCHAR},
       UserPassword = #{userpassword,jdbcType=VARCHAR},
-      UserEmail = #{useremail,jdbcType=VARCHAR},
-      UserTel = #{usertel,jdbcType=VARCHAR},
-      UserBlog = #{userblog,jdbcType=VARCHAR}
+      UserEmail = #{useremail,jdbcType=VARCHAR}
     where UserID = #{userid,jdbcType=INTEGER}
   </update>
 </mapper>
