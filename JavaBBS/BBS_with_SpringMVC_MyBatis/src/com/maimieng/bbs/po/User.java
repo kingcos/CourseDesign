@@ -9,6 +9,10 @@ public class User {
 
     private String useremail;
 
+    private String usertel;
+
+    private String userblog;
+
     public Integer getUserid() {
         return userid;
     }
@@ -39,5 +43,21 @@ public class User {
 
     public void setUseremail(String useremail) {
         this.useremail = useremail == null ? null : useremail.trim();
+    }
+
+    public String getUsertel() {
+        return usertel;
+    }
+
+    public void setUsertel(String usertel) {
+        this.usertel = usertel == null ? null : usertel.trim();
+    }
+
+    public String getUserblog() {
+        return userblog;
+    }
+
+    public void setUserblog(String userblog) {
+        this.userblog = userblog == null ? null : userblog.trim();
     }
 }
