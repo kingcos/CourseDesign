@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.maimieng.bbs.mapper.UserMapperCustom">
+	<select id="verifyLogin" parameterType="UserVo" resultType="User">
+		select * from user where UserName = #{user.username } and UserPassword= #{user.userpassword }
+	</select>
+
+	<select id="verifyUserName" parameterType="String" resultType="User">
+		select * from user where UserName =#{username}
+	</select>
+</mapper>
