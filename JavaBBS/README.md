@@ -23,7 +23,7 @@
 - 注册时不输入用户名，密码也可注册（未设置非空字段及相应处理）
 - 登录失败提示信息不全
 
-#### [Powered by Spring MVC + MyBatis](BBS_with_SpringMVC_MyBatis)
+#### [Powered by Spring MVC + MyBatis](./BBS_with_SpringMVC_MyBatis)
 
 ##### 技能树
 
