@@ -1,6 +1,6 @@
 package com.maimieng.Action;
 
-import java.util.List;
+import java.sql.ResultSet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,8 +10,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.maimieng.Bean.MessageForm;
 import com.maimieng.Dao.MessageDao;
+import com.maimieng.Dao.UserDao;
 
 public class ListMsAction extends Action {
 	@Override
@@ -20,8 +20,12 @@ public class ListMsAction extends Action {
 		// 存储执行结果
 		String result = "Success";
 		MessageDao messageDao = new MessageDao();
+		UserDao userDao = new UserDao();
+		request.getSession().setAttribute("userCount", userDao.countUsers());
 		String keyword = request.getParameter("keyword");
-		List<MessageForm> list = messageDao.listMessages(keyword);
+//		List<MessageForm> list = messageDao.listMessages(keyword);
+		ResultSet list = messageDao.listMessages(keyword);
+		
 		request.getSession().setAttribute("msList", list);
 		return mapping.findForward(result);
 	}

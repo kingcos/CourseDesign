@@ -40,4 +40,13 @@ public class UserDao {
 		resultSet = preparedStatement.executeQuery();
 		return resultSet.next();
 	}
+	
+	public int countUsers() throws Exception {
+		connection = DatabaseConnection.getConnection();
+		String sql = "select count(*) from user";
+		preparedStatement = connection.prepareStatement(sql);
+		resultSet = preparedStatement.executeQuery();
+		resultSet.next();
+		return resultSet.getInt(1);
+	}
 }
