@@ -58,7 +58,8 @@
 	ImageIO.write(image, "JPEG", responseOutputStream);
 	
 	responseOutputStream.flush();  
-    responseOutputStream.close();  
+    responseOutputStream.close();
+
 %>
 
 

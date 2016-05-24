@@ -83,7 +83,7 @@
 					}
 			%>
 		</table>
-
+		<hr>
 		<table width="600" border="0">
 			<tr>
 				<td align="right">第<%= intPage %>页 共<%= intPageCount %>页 共<%= session.getAttribute("userCount") %>个用户
