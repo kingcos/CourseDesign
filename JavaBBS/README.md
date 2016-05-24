@@ -21,6 +21,7 @@
 
 - 分页显示留言
 - 显示当前注册用户数
+- 留言搜索
 
 #### [Powered by Spring MVC + MyBatis](./BBS_with_SpringMVC_MyBatis)
 
