@@ -17,9 +17,10 @@
 - SQL
 - HTML
 
-##### 已知 Bug
+##### 待完善
 
-- 已修复部分，暂无其他明显 Bug
+- 分页显示留言
+- 显示当前注册用户数
 
 #### [Powered by Spring MVC + MyBatis](./BBS_with_SpringMVC_MyBatis)
 
