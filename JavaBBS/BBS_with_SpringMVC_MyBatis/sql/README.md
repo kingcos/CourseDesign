@@ -2,7 +2,7 @@
 
 ```sql
 CREATE DATABASE db_bbs_mybatis;
-USE db_bbs_mybatis
+USE db_bbs_mybatis;
 ```
 
 by http://maimieng.com

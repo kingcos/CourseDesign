@@ -2,7 +2,7 @@
 
 ```sql
 CREATE DATABASE db_bbs_by_mm;
-USE db_bbs_by_mm
+USE db_bbs_by_mm;
 ```
 
 by http://maimieng.com
