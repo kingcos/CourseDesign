@@ -23,7 +23,7 @@ public class MessageDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean saveMessage(String msUserName, Date msDate, String msTitle, String msContent) throws Exception {
+	public void saveMessage(String msUserName, Date msDate, String msTitle, String msContent) throws Exception {
 		// 连接数据库
 		connection = DatabaseConnection.getConnection();
 		// SQL 语句
@@ -34,8 +34,7 @@ public class MessageDao {
 		preparedStatement.setTimestamp(2, new java.sql.Timestamp(msDate.getTime()));
 		preparedStatement.setString(3, msTitle);
 		preparedStatement.setString(4, msContent);
-		// 执行 SQL 语句并返回成功与否
-		return preparedStatement.execute();
+		preparedStatement.execute();
 	}
 	
 	/**

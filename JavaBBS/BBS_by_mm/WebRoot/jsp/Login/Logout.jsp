@@ -10,7 +10,7 @@
 	<h1>退出成功</h1>
 	<%
 		session.invalidate();
-		response.sendRedirect("/BBS_by_mm/login.html");
+		response.sendRedirect("/BBS_by_mm");
 	%>
 </body>
 </html>

@@ -23,19 +23,23 @@ public class RegisterAction extends Action {
 		String userPassword = user.getUserPassword();
 		String userEmail = user.getUserEmail();
 		// 返回结果
-		String registerResult = null;
-		// 判断用户是否存在
-		UserDao userDao = new UserDao();
-		if (!userDao.verifyUserName(userName)) {
-			// 保存用户
-			userDao.saveUser(userName, userPassword, userEmail);
-			request.getSession().setAttribute("userName", userName);
-			registerResult = "RegisterSuccess";
-		}
-		// 用户已经存在 返回失败
-		else {
-			request.setAttribute("ErrorMessage", "该用户名已经存在");
-			registerResult = "RegisterFailure";
+		String registerResult = "RegisterFailure";
+		
+		if (userName == null || userName.equals("") || userPassword == null || userPassword.equals("")) {
+			request.setAttribute("ErrorMessage", "用户名和密码不得为空");
+		} else {
+			// 判断用户是否存在
+			UserDao userDao = new UserDao();
+			if (!userDao.verifyUserName(userName)) {
+				// 保存用户
+				userDao.saveUser(userName, userPassword, userEmail);
+				request.getSession().setAttribute("userName", userName);
+				registerResult = "RegisterSuccess";
+			}
+			// 用户已经存在 返回失败
+			else {
+				request.setAttribute("ErrorMessage", "该用户名已经存在");
+			}
 		}
 		return mapping.findForward(registerResult);
 	}

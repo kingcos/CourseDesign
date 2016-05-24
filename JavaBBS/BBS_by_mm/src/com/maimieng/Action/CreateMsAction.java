@@ -17,8 +17,6 @@ public class CreateMsAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		// 存储执行结果
-		String result = "Failure";
 		// 拿到表单
 		MessageForm messageForm = (MessageForm) form;
 		// 取得表单信息
@@ -30,10 +28,7 @@ public class CreateMsAction extends Action {
 		Date msDate = new Date();
 		// 调用 DAO
 		MessageDao messageDao = new MessageDao();
-		if (messageDao.saveMessage(msUserName, msDate, msTitle, msContent)) {
-			result = "Success";
-		}
-		// 返回结果
-		return mapping.findForward(result);
+		messageDao.saveMessage(msUserName, msDate, msTitle, msContent);
+		return mapping.findForward("ListMs");
 	}
 }

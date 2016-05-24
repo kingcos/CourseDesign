@@ -28,19 +28,18 @@ public class LoginAction extends Action {
 		String rand = (String)request.getSession().getAttribute("rand");
 		if (!rand.equals(code)) {
 			loginResult = "LoginFailure";
+			request.setAttribute("ErrorMessage", "验证码错误！");
 			return mapping.findForward(loginResult);
 		}
 		
-		//
 		UserDao userDao = new UserDao();
 		if (userDao.verifyLogin(userName, userPassword)) {
-			//
 			request.getSession().setAttribute("userName", userName);
 			loginResult = "LoginSuccess";
 		}
 		// 用户 返回失败
 		else {
-			// request.setAttribute("failmessage", "该用户名已经存在");
+			request.setAttribute("ErrorMessage", "用户名或密码错误！");
 			loginResult = "LoginFailure";
 		}
 		return mapping.findForward(loginResult);
