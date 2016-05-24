@@ -16,15 +16,20 @@ import com.maimieng.Dao.ReplyDao;
 public class ReplyMsAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		String result = "Success";
 		ReplyForm replyForm = (ReplyForm) form;
 		int reMsID = (int) request.getSession().getAttribute("MsID");
 		String reUserName = (String) request.getSession().getAttribute("userName");
 		Date reDate = new Date();
 		String reContent = replyForm.getReContent();
 		
-		ReplyDao replyDao = new ReplyDao();
-		replyDao.saveReply(reMsID, reUserName, reDate, reContent);
-		
-		return mapping.findForward("Success");
+		if (reContent == null || reContent.equals("")) {
+			request.setAttribute("ErrorMessage", "内容不得为空！");
+			result = "Failure";
+		} else {
+			ReplyDao replyDao = new ReplyDao();
+			replyDao.saveReply(reMsID, reUserName, reDate, reContent);
+		}
+		return mapping.findForward(result);
 	}
 }

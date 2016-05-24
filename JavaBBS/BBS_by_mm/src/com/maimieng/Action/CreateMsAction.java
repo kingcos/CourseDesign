@@ -1,5 +1,7 @@
 package com.maimieng.Action;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,7 @@ public class CreateMsAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		String result = "ListMs";
 		// 拿到表单
 		MessageForm messageForm = (MessageForm) form;
 		// 取得表单信息
@@ -25,10 +28,17 @@ public class CreateMsAction extends Action {
 		String msTitle = messageForm.getMsTitle();
 		String msContent = messageForm.getMsContent();
 		// 时间自动默认当前时间
-		Date msDate = new Date();
-		// 调用 DAO
-		MessageDao messageDao = new MessageDao();
-		messageDao.saveMessage(msUserName, msDate, msTitle, msContent);
-		return mapping.findForward("ListMs");
+		Date date = new Date();
+		String formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+		Timestamp msDate = Timestamp.valueOf(formatDate);
+		if (msTitle == null || msTitle.equals("") || msContent == null || msContent.equals("")) {
+			request.setAttribute("ErrorMessage", "标题和内容不得为空！");
+			result = "Failure";
+		} else {
+			// 调用 DAO
+			MessageDao messageDao = new MessageDao();
+			messageDao.saveMessage(msUserName, msDate, msTitle, msContent);
+		}
+		return mapping.findForward(result);
 	}
 }

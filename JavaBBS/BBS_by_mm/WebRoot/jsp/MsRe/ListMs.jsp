@@ -7,13 +7,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title><%=(String) session.getAttribute("userName")%></title>
 </head>
 <body>
 
 	<center>
 		<h1>浏览留言</h1>
-		<a href="message.html">创建留言</a> | <a href="jsp/Login/Logout.jsp">退出系统</a>
+		<a href="jsp/MsRe/Message.jsp">创建留言</a> | <a href="jsp/Login/Logout.jsp">退出系统</a>
 		<hr />
 		<table width="700" border="0" cellpadding=5 cellspacing=1
 			bgcolor=#ffffff>

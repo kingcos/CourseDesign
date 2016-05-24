@@ -8,5 +8,7 @@
 </head>
 <body>
 <h1><%=request.getAttribute("ErrorMessage") %></h1>
+<a href="<%=request.getContextPath()%>/">登录</a>
+<a href="<%=request.getContextPath()%>/jsp/Register/Register.jsp">重新注册</a>
 </body>
 </html>

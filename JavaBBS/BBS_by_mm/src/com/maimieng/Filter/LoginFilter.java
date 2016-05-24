@@ -24,11 +24,12 @@ public class LoginFilter implements Filter {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
-		String path = httpServletRequest.getRequestURI();
+		String path = httpServletRequest.getRequestURI().substring(httpServletRequest.getContextPath().length() + 1);
+		
 		String userName = (String) httpServletRequest.getSession().getAttribute("userName");
-
-		if (path.equals("/BBS_by_mm/") || path.equals("/BBS_by_mm/image.jsp") || path.equals("/BBS_by_mm/login.do")
-				|| path.equals("/BBS_by_mm/register.do")) {
+		
+		if (path.equals("") || path.equals("jsp/Login/Image.jsp") || path.equals("login.do")
+				|| path.equals("register.do") || path.equals("jsp/Register/Register.jsp")) {
 			chain.doFilter(request, response);
 			return;
 		}

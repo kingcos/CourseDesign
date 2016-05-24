@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1><%=request.getAttribute("ErrorMessage") %></h1>
-
+<a href="<%=request.getContextPath()%>/">重新登录</a>
 </body>
 </html>

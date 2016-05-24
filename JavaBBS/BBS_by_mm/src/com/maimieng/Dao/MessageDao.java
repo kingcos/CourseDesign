@@ -3,8 +3,8 @@ package com.maimieng.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.maimieng.Bean.MessageForm;
@@ -23,7 +23,7 @@ public class MessageDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public void saveMessage(String msUserName, Date msDate, String msTitle, String msContent) throws Exception {
+	public void saveMessage(String msUserName, Timestamp msDate, String msTitle, String msContent) throws Exception {
 		// 连接数据库
 		connection = DatabaseConnection.getConnection();
 		// SQL 语句
@@ -31,7 +31,7 @@ public class MessageDao {
 		// 执行预编译语句，填充 SQL 语句
 		preparedStatement = connection.prepareStatement(insert);
 		preparedStatement.setString(1, msUserName);
-		preparedStatement.setTimestamp(2, new java.sql.Timestamp(msDate.getTime()));
+		preparedStatement.setTimestamp(2, msDate);
 		preparedStatement.setString(3, msTitle);
 		preparedStatement.setString(4, msContent);
 		preparedStatement.execute();

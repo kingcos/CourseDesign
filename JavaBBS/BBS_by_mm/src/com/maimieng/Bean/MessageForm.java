@@ -1,13 +1,13 @@
 package com.maimieng.Bean;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import org.apache.struts.action.ActionForm;
 
 @SuppressWarnings("serial")
 public class MessageForm extends ActionForm {
 	private int msID;
 	private String msUserName;
-	private Date msDate;
+	private Timestamp msDate;
 	private String msTitle;
 	private String msContent;
 	
@@ -27,11 +27,11 @@ public class MessageForm extends ActionForm {
 		this.msUserName = msUserName;
 	}
 
-	public Date getMsDate() {
+	public Timestamp getMsDate() {
 		return msDate;
 	}
 
-	public void setMsDate(Date msDate) {
+	public void setMsDate(Timestamp msDate) {
 		this.msDate = msDate;
 	}
 

@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>退出成功</h1>
+	<h1><title><%=(String) session.getAttribute("userName")%></title> 退出成功</h1>
 	<%
 		session.invalidate();
-		response.sendRedirect("/BBS_by_mm");
 	%>
+	<a href="<%=request.getContextPath()%>/">重新登录</a>
 </body>
 </html>
