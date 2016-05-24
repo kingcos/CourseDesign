@@ -37,23 +37,56 @@ public class MessageDao {
 		preparedStatement.execute();
 	}
 	
-	/**
-	 * 找到所有留言，并返回
-	 * @return
-	 * @throws Exception
-	 */
-	public List<MessageForm> listMessages() throws Exception {
-		// 存储 留言 的列表
+//	/**
+//	 * 找到所有留言，并返回
+//	 * @return
+//	 * @throws Exception
+//	 */
+//	public List<MessageForm> listMessages() throws Exception {
+//		// 存储 留言 的列表
+//		List<MessageForm> list = new ArrayList<>();
+//		// 连接数据库
+//		connection = DatabaseConnection.getConnection();
+//		// SQL 语句
+//		String select = "select * from message order by MsDate DESC";
+//		// 执行预编译语句
+//		preparedStatement = connection.prepareStatement(select);
+//		// 存储结果集
+//		resultSet = preparedStatement.executeQuery();
+//		// 遍历结果集
+//		while (resultSet.next()) {
+//			MessageForm messageForm = new MessageForm();
+//			// 取到结果集内容，转为 MessageForm 对象
+//			messageForm.setMsID(resultSet.getInt("MsID"));
+//			messageForm.setMsUserName(resultSet.getString("MsUserName"));
+//			messageForm.setMsDate(resultSet.getTimestamp("MsDate"));
+//			messageForm.setMsTitle(resultSet.getString("MsTitle"));
+//			messageForm.setMsContent(resultSet.getString("MsContent"));
+//			// 附加到列表
+//			list.add(messageForm);
+//		}
+//		// 返回 留言 列表
+//		return list;
+//	}
+	
+	public List<MessageForm> listMessages(String keyword) throws Exception {
 		List<MessageForm> list = new ArrayList<>();
-		// 连接数据库
 		connection = DatabaseConnection.getConnection();
-		// SQL 语句
-		String select = "select * from message order by MsDate DESC";
-		// 执行预编译语句
-		preparedStatement = connection.prepareStatement(select);
-		// 存储结果集
+		String select = "";
+		if (keyword == null || keyword.equals("")) {
+			select = "select * from message order by MsDate DESC";
+			preparedStatement = connection.prepareStatement(select);
+		} else {
+			byte source[] = keyword.getBytes("iso8859-1");
+			keyword = new String (source, "UTF-8");
+			select = "select * from message where mstitle like ? order by MsDate DESC";
+			preparedStatement = connection.prepareStatement(select);
+			preparedStatement.setString(1, "%" + keyword + "%");
+		}
+		
+//		String select = "select * from message where mstitle like '%?%' order by MsDate DESC";
+		
 		resultSet = preparedStatement.executeQuery();
-		// 遍历结果集
 		while (resultSet.next()) {
 			MessageForm messageForm = new MessageForm();
 			// 取到结果集内容，转为 MessageForm 对象

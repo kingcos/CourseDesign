@@ -49,5 +49,9 @@
 			type="com.maimieng.Action.ListReAction">
 			<forward name="Success" path="/jsp/MsRe/MessageDetail.jsp"></forward>
 		</action>
+		
+		<action path="/search" scope="request" type="com.maimieng.Action.SearchMsAction">
+			<forward name="Success" path="/listms.do"></forward>
+		</action>
 	</action-mappings>
 </struts-config>

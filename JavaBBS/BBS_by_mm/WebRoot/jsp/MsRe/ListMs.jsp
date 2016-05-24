@@ -14,7 +14,12 @@
 	<center>
 		<h1>浏览留言</h1>
 		<a href="jsp/MsRe/Message.jsp">创建留言</a> | <a href="jsp/Login/Logout.jsp">退出系统</a>
-		<hr />
+		<hr>
+		<form action="<%=request.getContextPath()%>/listms.do" method="get" >
+		<input type="text" name="keyword">
+		<button type="submit">搜索</button>
+		</form>
+		<hr>
 		<table width="700" border="0" cellpadding=5 cellspacing=1
 			bgcolor=#ffffff>
 
