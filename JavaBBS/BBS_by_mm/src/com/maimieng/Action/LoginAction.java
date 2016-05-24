@@ -12,37 +12,33 @@ import com.maimieng.Bean.*;
 import com.maimieng.Dao.*;
 
 public class LoginAction extends Action {
-
+	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		String result = "Failure";
+		
 		UserForm user = (UserForm) form;
 
 		String userName = user.getUserName();
 		String userPassword = user.getUserPassword();
-		// 返回结果
-		String loginResult = null;
 		
 		String code = request.getParameter("rand");
 		String rand = (String)request.getSession().getAttribute("rand");
 		if (!rand.equals(code)) {
-			loginResult = "LoginFailure";
 			request.setAttribute("ErrorMessage", "验证码错误！");
-			return mapping.findForward(loginResult);
+			return mapping.findForward(result);
 		}
 		
 		UserDao userDao = new UserDao();
 		if (userDao.verifyLogin(userName, userPassword)) {
 			request.getSession().setAttribute("userName", userName);
-			loginResult = "LoginSuccess";
+			result = "Success";
 		}
-		// 用户 返回失败
 		else {
 			request.setAttribute("ErrorMessage", "用户名或密码错误！");
-			loginResult = "LoginFailure";
 		}
-		return mapping.findForward(loginResult);
+		return mapping.findForward(result);
 	}
 
 }

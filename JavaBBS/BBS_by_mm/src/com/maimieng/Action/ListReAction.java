@@ -17,10 +17,15 @@ public class ListReAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		String result = "Success";
+		
 		ReplyDao replyDao = new ReplyDao();
+		
 		int reMsID = (int) request.getSession().getAttribute("MsID");
+		
 		List<ReplyForm> list = replyDao.listReply(reMsID);
+		
 		request.getSession().setAttribute("reList", list);
-		return mapping.findForward("Success");
+		return mapping.findForward(result);
 	}
 }

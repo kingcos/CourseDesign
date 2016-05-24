@@ -14,10 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginFilter implements Filter {
 
 	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-
-	}
+	public void destroy() {}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
@@ -25,9 +22,9 @@ public class LoginFilter implements Filter {
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
 		String path = httpServletRequest.getRequestURI().substring(httpServletRequest.getContextPath().length() + 1);
-		
+
 		String userName = (String) httpServletRequest.getSession().getAttribute("userName");
-		
+
 		if (path.equals("") || path.equals("jsp/Login/Image.jsp") || path.equals("login.do")
 				|| path.equals("register.do") || path.equals("jsp/Register/Register.jsp")) {
 			chain.doFilter(request, response);
@@ -41,9 +38,6 @@ public class LoginFilter implements Filter {
 	}
 
 	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub
-
-	}
+	public void init(FilterConfig filterConfig) throws ServletException {}
 
 }

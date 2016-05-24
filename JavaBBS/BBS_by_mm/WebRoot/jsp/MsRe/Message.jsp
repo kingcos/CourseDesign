@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><%=(String) session.getAttribute("userName")%></title>
+<title>MMBBS | 留言</title>
 </head>
 <body>
-	<form method="post" action="<%=request.getContextPath()%>/createms.do">
+	<form method="post" action="<%= request.getContextPath() %>/createms.do">
 		<table>
 			<tr>
 				<td>标题</td>
-				<td><input type=text name=msTitle size=60 /></td>
+				<td><input type="text" name="msTitle" size="60" /></td>
 			</tr>
 			<tr>
 				<td>内容</td>
@@ -19,7 +19,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type=submit name=submit value="创建留言" /></td>
+				<td><button type="submit">创建留言</button></td>
 			</tr>
 		</table>
 	</form>

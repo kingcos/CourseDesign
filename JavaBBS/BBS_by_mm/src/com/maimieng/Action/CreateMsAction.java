@@ -20,22 +20,21 @@ public class CreateMsAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String result = "ListMs";
-		// 拿到表单
+		
 		MessageForm messageForm = (MessageForm) form;
-		// 取得表单信息
-		// 表单中没有的 msUserName 从 Session 获取
+		
 		String msUserName = (String) request.getSession().getAttribute("userName");
 		String msTitle = messageForm.getMsTitle();
 		String msContent = messageForm.getMsContent();
-		// 时间自动默认当前时间
+		
 		Date date = new Date();
 		String formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
 		Timestamp msDate = Timestamp.valueOf(formatDate);
+		
 		if (msTitle == null || msTitle.equals("") || msContent == null || msContent.equals("")) {
 			request.setAttribute("ErrorMessage", "标题和内容不得为空！");
 			result = "Failure";
 		} else {
-			// 调用 DAO
 			MessageDao messageDao = new MessageDao();
 			messageDao.saveMessage(msUserName, msDate, msTitle, msContent);
 		}

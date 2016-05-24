@@ -10,7 +10,7 @@ public class MessageForm extends ActionForm {
 	private Timestamp msDate;
 	private String msTitle;
 	private String msContent;
-	
+
 	public int getMsID() {
 		return msID;
 	}

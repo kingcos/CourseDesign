@@ -13,14 +13,14 @@
 	<action-mappings>
 		<action path="/register" name="UserForm" scope="request"
 			type="com.maimieng.Action.RegisterAction">
-			<forward name="RegisterSuccess" path="/listms.do"></forward>
-			<forward name="RegisterFailure" path="/jsp/Register/Failure.jsp"></forward>
+			<forward name="Success" path="/listms.do"></forward>
+			<forward name="Failure" path="/jsp/Register/Failure.jsp"></forward>
 		</action>
 
 		<action path="/login" name="UserForm" scope="request"
 			type="com.maimieng.Action.LoginAction">
-			<forward name="LoginSuccess" path="/listms.do"></forward>
-			<forward name="LoginFailure" path="/jsp/Login/Failure.jsp"></forward>
+			<forward name="Success" path="/listms.do"></forward>
+			<forward name="Failure" path="/jsp/Login/Failure.jsp"></forward>
 		</action>
 
 		<action path="/createms" name="MessageForm" scope="request"
@@ -48,10 +48,6 @@
 		<action path="/listre" name="ReplyForm" scope="request"
 			type="com.maimieng.Action.ListReAction">
 			<forward name="Success" path="/jsp/MsRe/MessageDetail.jsp"></forward>
-		</action>
-		
-		<action path="/search" scope="request" type="com.maimieng.Action.SearchMsAction">
-			<forward name="Success" path="/listms.do"></forward>
 		</action>
 	</action-mappings>
 </struts-config>

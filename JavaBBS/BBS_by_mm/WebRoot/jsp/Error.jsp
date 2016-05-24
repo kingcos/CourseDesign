@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MMBBS | 出错啦！</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>
-		<%=request.getAttribute("ErrorMessage") %>
-	</h1>
+<h1>请勿重复提交！</h1>
 </body>
 </html>

@@ -1,6 +1,6 @@
 package com.maimieng.Bean;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import org.apache.struts.action.ActionForm;
 
@@ -32,11 +32,11 @@ public class ReplyForm extends ActionForm {
 		this.reUserName = reUserName;
 	}
 
-	public Date getReDate() {
+	public Timestamp getReDate() {
 		return reDate;
 	}
 
-	public void setReDate(Date reDate) {
+	public void setReDate(Timestamp reDate) {
 		this.reDate = reDate;
 	}
 
@@ -50,6 +50,6 @@ public class ReplyForm extends ActionForm {
 
 	private int reMsID;
 	private String reUserName;
-	private Date reDate;
+	private Timestamp reDate;
 	private String reContent;
 }

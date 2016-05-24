@@ -6,23 +6,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><%=(String) session.getAttribute("userName")%></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>MMBBS | 留言</title>
 </head>
 <body>
-
 	<center>
 		<h1>浏览留言</h1>
-		<a href="<%=request.getContextPath()%>/jsp/MsRe/Message.jsp">创建留言</a> | <a
-			href="<%=request.getContextPath()%>/jsp/Login/Logout.jsp">退出系统</a>
+		<a href="<%= request.getContextPath() %>/jsp/MsRe/Message.jsp">创建留言</a> | 
+		<a href="<%= request.getContextPath() %>/jsp/Login/Logout.jsp">退出系统</a>
 		<hr>
-		<form action="<%=request.getContextPath()%>/listms.do" method="get">
+		<form action="<%= request.getContextPath() %>/listms.do" method="get">
 			<input type="text" name="keyword">
 			<button type="submit">搜索</button>
 		</form>
 		<hr>
-		<table width="700" border="0" cellpadding=5 cellspacing=1
-			bgcolor=#ffffff>
+		<table width="700" border="0" cellpadding="5" cellspacing="1" bgcolor="#ffffff">
 
 			<tr align="center" bgcolor=#cccccc>
 				<td width="200">标题</td>
@@ -31,10 +29,9 @@
 				<td width="100">操作</td>
 			</tr>
 
-
 			<%
 				try {
-					ResultSet rs = (ResultSet) session.getAttribute("msList");
+					ResultSet rs = (ResultSet) session.getAttribute("rs");
 					int intPageSize; //一页显示的记录数
 					int intRowCount; //记录的总数
 					int intPageCount; //总页数
@@ -89,7 +86,7 @@
 
 		<table width="600" border="0">
 			<tr>
-				<td align="right">第<%=intPage%>页 共<%=intPageCount%>页 共<%=session.getAttribute("userCount")%>个用户
+				<td align="right">第<%= intPage %>页 共<%= intPageCount %>页 共<%= session.getAttribute("userCount") %>个用户
 				</td>
 				<td>
 					<%
@@ -102,11 +99,10 @@
 		</table>
 		<%
 			} catch (
-
 			Exception e) {
 				e.printStackTrace();
 			}
-			%>
+		%>
 	</center>
 </body>
 </html>

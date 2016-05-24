@@ -4,13 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<title>MMBBS | 欢迎再来！</title>
 </head>
 <body>
-	<h1><title><%=(String) session.getAttribute("userName")%></title> 退出成功</h1>
+	<h1>
+		<%= (String) session.getAttribute("userName") %>退出成功
+	</h1>
+	
 	<%
 		session.invalidate();
 	%>
-	<a href="<%=request.getContextPath()%>/">重新登录</a>
+	
+	<h3>
+		<a href="<%= request.getContextPath() %>/">重新登录</a>
+	</h3>
 </body>
 </html>

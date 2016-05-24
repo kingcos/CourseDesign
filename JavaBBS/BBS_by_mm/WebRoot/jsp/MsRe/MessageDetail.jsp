@@ -7,10 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><%=(String) session.getAttribute("userName")%></title>
+	<title>MMBBS | ${sessionScope.MessageForm.msTitle }</title>
 </head>
 <body>
-
 	<table>
 		<tr>
 			<td>标题：</td>
@@ -30,7 +29,7 @@
 		</tr>
 	</table>
 
-	<hr />
+	<hr>
 	<logic:iterate id="re" name="reList">
 		<table bgcolor="#98FB98">
 			<tr>
@@ -46,14 +45,12 @@
 				<td>${re.reContent }</td>
 			</tr>
 		</table>
-		
-		<br />
+		<br>
 	</logic:iterate>
 
-	<form method=post action="replyms.do">
-		<!-- <input type=hidden name=mid value= /> -->
+	<form method="post" action="<%= request.getContextPath() %>/replyms.do">
 		<textarea rows="3" cols="60" name="reContent"></textarea>
-		<input type=submit name=submit value="回复" />
+		<button type="submit">回复</button>
 	</form>
 
 </body>

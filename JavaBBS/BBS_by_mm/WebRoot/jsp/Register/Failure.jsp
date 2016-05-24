@@ -4,11 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>MMBBS | 出错啦！</title>
 </head>
 <body>
-<h1><%=request.getAttribute("ErrorMessage") %></h1>
-<a href="<%=request.getContextPath()%>/">登录</a>
-<a href="<%=request.getContextPath()%>/jsp/Register/Register.jsp">重新注册</a>
+	<h1>
+		<%= request.getAttribute("ErrorMessage") %>
+	</h1>
+
+	<h3>
+		<a href="<%= request.getContextPath() %>/">登录</a>
+	</h3>
+	<h3>
+		<a href="<%= request.getContextPath() %>/jsp/Register/Register.jsp">重新注册</a>
+	</h3>
 </body>
 </html>
