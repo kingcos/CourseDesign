@@ -21,6 +21,9 @@ public class UserDao {
 		preparedStatement.setString(2, userPassword);
 		preparedStatement.setString(3, userEmail);
 		preparedStatement.execute();
+		
+		preparedStatement.close();
+		connection.close();
 	}
 
 	public boolean verifyLogin(String userName, String userPassword) throws Exception {
@@ -34,7 +37,12 @@ public class UserDao {
 		
 		resultSet = preparedStatement.executeQuery();
 		
-		return resultSet.next();
+		boolean result = resultSet.next();
+		
+		resultSet.close();
+		preparedStatement.close();
+		connection.close();
+		return result;
 	}
 
 	public boolean verifyUserName(String userName) throws Exception {
@@ -47,7 +55,12 @@ public class UserDao {
 		
 		resultSet = preparedStatement.executeQuery();
 		
-		return resultSet.next();
+		boolean result = resultSet.next();
+		
+		resultSet.close();
+		preparedStatement.close();
+		connection.close();
+		return result;
 	}
 	
 	public int countUsers() throws Exception {
@@ -60,6 +73,11 @@ public class UserDao {
 		resultSet = preparedStatement.executeQuery();
 		resultSet.next();
 		
-		return resultSet.getInt(1);
+		int result = resultSet.getInt(1);
+		
+		resultSet.close();
+		preparedStatement.close();
+		connection.close();
+		return result;
 	}
 }

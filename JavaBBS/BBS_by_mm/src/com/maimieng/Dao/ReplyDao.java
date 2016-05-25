@@ -25,6 +25,8 @@ public class ReplyDao {
 		preparedStatement.setString(4, reContent);
 		
 		preparedStatement.execute();
+		
+		preparedStatement.close();
 		connection.close();
 	}
 	
@@ -46,6 +48,9 @@ public class ReplyDao {
 			
 			list.add(replyForm);
 		}
+		
+		resultSet.close();
+		preparedStatement.close();
 		connection.close();
 		return list;
 	}

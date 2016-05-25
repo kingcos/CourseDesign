@@ -1,6 +1,6 @@
 package com.maimieng.Action;
 
-import java.sql.ResultSet;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.maimieng.Bean.MessageForm;
 import com.maimieng.Dao.MessageDao;
 import com.maimieng.Dao.UserDao;
 
@@ -41,9 +42,9 @@ public class ListMsAction extends Action {
 		
 		request.getSession().setAttribute("messageCount", messageCount);
 		
-		ResultSet resultSet = messageDao.listMessages(keyword, startIndex, 5);
+		List<MessageForm> msList = messageDao.listMessages(keyword, startIndex, 5);
 		
-		request.getSession().setAttribute("rs", resultSet);
+		request.getSession().setAttribute("msList", msList);
 		return mapping.findForward(result);
 	}
 }

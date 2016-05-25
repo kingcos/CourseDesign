@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.maimieng.Bean.MessageForm;
 
@@ -24,10 +26,11 @@ public class MessageDao {
 		preparedStatement.setString(4, msContent);
 		preparedStatement.execute();
 		
+		preparedStatement.close();
 		connection.close();
 	}
 	
-	public ResultSet listMessages(String keyword, int startIndex, int range) throws Exception {
+	public List<MessageForm> listMessages(String keyword, int startIndex, int range) throws Exception {
 		connection = DatabaseConnection.getConnection();
 		String select = "";
 		
@@ -47,8 +50,22 @@ public class MessageDao {
 		}
 		
 		resultSet = preparedStatement.executeQuery();
-//		connection.close();
-		return resultSet;
+		
+		List<MessageForm> list = new ArrayList<MessageForm>();
+		while (resultSet.next()) {
+			MessageForm messageForm = new MessageForm();
+			messageForm.setMsID(resultSet.getInt("MsID"));
+			messageForm.setMsUserName(resultSet.getString("MsUserName"));
+			messageForm.setMsDate(resultSet.getTimestamp("MsDate"));
+			messageForm.setMsTitle(resultSet.getString("MsTitle"));
+			messageForm.setMsContent(resultSet.getString("MsContent"));
+			list.add(messageForm);
+		}
+		
+		resultSet.close();
+		preparedStatement.close();
+		connection.close();
+		return list;
 	}
 
 	public MessageForm getMessage(int MsID) throws Exception {
@@ -68,6 +85,9 @@ public class MessageDao {
 			messageForm.setMsTitle(resultSet.getString("MsTitle"));
 			messageForm.setMsContent(resultSet.getString("MsContent"));
 		}
+		
+		resultSet.close();
+		preparedStatement.close();
 		connection.close();
 		return messageForm;
 	}
@@ -89,6 +109,9 @@ public class MessageDao {
 		resultSet.next();
 		
 		int result = resultSet.getInt(1);
+		
+		resultSet.close();
+		preparedStatement.close();
 		connection.close();
 		return result;
 	}

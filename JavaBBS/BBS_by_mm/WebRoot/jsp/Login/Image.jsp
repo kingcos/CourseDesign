@@ -53,6 +53,10 @@
 
 	// 图象生效
 	g.dispose();
+	
+	out.clearBuffer();
+	out = pageContext.pushBody();
+	
 	ServletOutputStream responseOutputStream =response.getOutputStream();  
 	// 输出图象到页面
 	ImageIO.write(image, "JPEG", responseOutputStream);
