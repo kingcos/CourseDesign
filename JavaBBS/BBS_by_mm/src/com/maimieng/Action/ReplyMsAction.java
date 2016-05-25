@@ -22,7 +22,7 @@ public class ReplyMsAction extends Action {
 		
 		ReplyForm replyForm = (ReplyForm) form;
 		
-		int reMsID = (int) request.getSession().getAttribute("MsID");
+		int reMsID = (Integer) request.getSession().getAttribute("MsID");
 		String reUserName = (String) request.getSession().getAttribute("userName");
 		String reContent = replyForm.getReContent();
 		

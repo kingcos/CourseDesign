@@ -36,18 +36,20 @@
 
 		<action path="/getms" name="MessageForm" scope="request"
 			type="com.maimieng.Action.GetMessageAction">
-			<forward name="Success" path="/listre.do"></forward>
+			<!-- <forward name="Success" path="/listre.do"></forward> -->
+			<forward name="Success" path="/jsp/MsRe/MessageDetail.jsp"></forward>
 		</action>
 
 		<action path="/replyms" name="ReplyForm" scope="request"
 			type="com.maimieng.Action.ReplyMsAction">
-			<forward name="Success" path="/listre.do"></forward>
+			<!-- <forward name="Success" path="/listre.do"></forward> -->
+			<forward name="Success" path="/getms.do"></forward>
 			<forward name="Failure" path="/jsp/MsRe/ReFailure.jsp"></forward>
 		</action>
 		
-		<action path="/listre" name="ReplyForm" scope="request"
+		<!-- <action path="/listre" name="ReplyForm" scope="request"
 			type="com.maimieng.Action.ListReAction">
 			<forward name="Success" path="/jsp/MsRe/MessageDetail.jsp"></forward>
-		</action>
+		</action> -->
 	</action-mappings>
 </struts-config>
