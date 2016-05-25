@@ -23,24 +23,31 @@ public class MessageDao {
 		preparedStatement.setString(3, msTitle);
 		preparedStatement.setString(4, msContent);
 		preparedStatement.execute();
+		
+		connection.close();
 	}
 	
-	public ResultSet listMessages(String keyword) throws Exception {
+	public ResultSet listMessages(String keyword, int startIndex, int range) throws Exception {
 		connection = DatabaseConnection.getConnection();
 		String select = "";
 		
-		if (keyword == null || keyword.equals("")) {
-			select = "select * from message order by MsDate DESC";
+		if (keyword == null || keyword.equals("null")) {
+			select = "select * from message order by MsDate DESC LIMIT ?, ?";
 			preparedStatement = connection.prepareStatement(select);
+			preparedStatement.setInt(1, startIndex);
+			preparedStatement.setInt(2, range);
 		} else {
 			byte source[] = keyword.getBytes("ISO8859-1");
 			keyword = new String (source, "UTF-8");
-			select = "select * from message where mstitle like ? order by MsDate DESC";
+			select = "select * from message where mstitle like ? order by MsDate DESC LIMIT ?, ?";
 			preparedStatement = connection.prepareStatement(select);
 			preparedStatement.setString(1, "%" + keyword + "%");
+			preparedStatement.setInt(2, startIndex);
+			preparedStatement.setInt(3, range);
 		}
 		
 		resultSet = preparedStatement.executeQuery();
+//		connection.close();
 		return resultSet;
 	}
 
@@ -61,6 +68,27 @@ public class MessageDao {
 			messageForm.setMsTitle(resultSet.getString("MsTitle"));
 			messageForm.setMsContent(resultSet.getString("MsContent"));
 		}
+		connection.close();
 		return messageForm;
+	}
+	
+	public int countMessages(String keyword) throws Exception {
+		connection = DatabaseConnection.getConnection();
+		String sql = "";
+		
+		if (keyword == null || keyword.equals("null")) {
+			sql = "select count(*) from message";
+			preparedStatement = connection.prepareStatement(sql);
+		} else {
+			sql = "select count(*) from message where mstitle like ?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, "%" + keyword + "%");
+		}
+
+		resultSet = preparedStatement.executeQuery();
+		resultSet.next();
+		
+//		connection.close();
+		return resultSet.getInt(1);
 	}
 }

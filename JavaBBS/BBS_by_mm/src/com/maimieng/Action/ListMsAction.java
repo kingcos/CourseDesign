@@ -22,9 +22,26 @@ public class ListMsAction extends Action {
 		MessageDao messageDao = new MessageDao();
 		UserDao userDao = new UserDao();
 		
-		request.getSession().setAttribute("userCount", userDao.countUsers());
 		String keyword = request.getParameter("keyword");
-		ResultSet resultSet = messageDao.listMessages(keyword);
+		String currentPageStr = request.getParameter("pageNum");
+		
+		int currentPage;
+		
+		if (currentPageStr == null || currentPageStr.equals("")) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.parseInt(currentPageStr);
+		}
+		
+		request.getSession().setAttribute("userCount", userDao.countUsers());
+		
+		int messageCount = messageDao.countMessages(keyword);
+		
+		int startIndex = (currentPage - 1) * 5;
+		
+		request.getSession().setAttribute("messageCount", messageCount);
+		
+		ResultSet resultSet = messageDao.listMessages(keyword, startIndex, 5);
 		
 		request.getSession().setAttribute("rs", resultSet);
 		return mapping.findForward(result);

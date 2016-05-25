@@ -22,7 +22,6 @@ public class UserDao {
 		preparedStatement.setString(3, userEmail);
 		
 		return preparedStatement.execute();
-
 	}
 
 	public boolean verifyLogin(String userName, String userPassword) throws Exception {
