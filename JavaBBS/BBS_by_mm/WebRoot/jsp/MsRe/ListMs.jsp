@@ -56,7 +56,7 @@
 				<form action="<%= request.getContextPath() %>/getms.do" method="post">
 					<td><%= rs.getString("MsTitle") %></td>
 					<td><%= rs.getString("MsUserName") %></td>
-					<td><%= rs.getTimestamp("MsDate") %></td> <input type="hidden"
+					<td><%= rs.getTimestamp("MsDate").toString().substring(0, 19) %></td> <input type="hidden"
 						name="msID" value=<%= rs.getInt("MsID") %>>
 					<td><button type="submit">查看详情</button></td>
 				</form>

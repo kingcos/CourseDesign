@@ -14,7 +14,7 @@ public class ReplyDao {
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 
-	public boolean saveReply(int reMsID, String reUserName, Timestamp reDate, String reContent) throws Exception {
+	public void saveReply(int reMsID, String reUserName, Timestamp reDate, String reContent) throws Exception {
 		connection = DatabaseConnection.getConnection();
 		
 		String insert = "insert into reply (ReMsID, ReUserName, ReDate, ReContent) values (?,?,?,?)";
@@ -24,7 +24,8 @@ public class ReplyDao {
 		preparedStatement.setTimestamp(3, reDate);
 		preparedStatement.setString(4, reContent);
 		
-		return preparedStatement.execute();
+		preparedStatement.execute();
+		connection.close();
 	}
 	
 	public List<ReplyForm> listReply(int reMsID) throws Exception {
@@ -45,6 +46,7 @@ public class ReplyDao {
 			
 			list.add(replyForm);
 		}
+		connection.close();
 		return list;
 	}
 }

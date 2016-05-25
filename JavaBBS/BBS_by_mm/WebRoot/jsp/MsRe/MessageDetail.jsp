@@ -21,7 +21,7 @@
 		</tr>
 		<tr>
 			<td>时间：</td>
-			<td>${sessionScope.MessageForm.msDate }</td>
+			<td>${sessionScope.MessageForm.msDate.toString().substring(0, 19) }</td>
 		</tr>
 		<tr>
 			<td>内容：</td>
@@ -38,7 +38,7 @@
 			</tr>
 			<tr>
 				<td>时间：</td>
-				<td>${re.reDate }</td>
+				<td>${re.reDate.toString().substring(0, 19) }</td>
 			</tr>
 			<tr>
 				<td>回复内容：</td>

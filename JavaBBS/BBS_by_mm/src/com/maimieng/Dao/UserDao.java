@@ -11,7 +11,7 @@ public class UserDao {
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 
-	public boolean saveUser(String userName, String userPassword, String userEmail) throws Exception {
+	public void saveUser(String userName, String userPassword, String userEmail) throws Exception {
 		connection = DatabaseConnection.getConnection();
 		
 		String insert = "insert into user (UserName, UserPassword, UserEmail) values (?,?,?)";
@@ -20,8 +20,7 @@ public class UserDao {
 		preparedStatement.setString(1, userName);
 		preparedStatement.setString(2, userPassword);
 		preparedStatement.setString(3, userEmail);
-		
-		return preparedStatement.execute();
+		preparedStatement.execute();
 	}
 
 	public boolean verifyLogin(String userName, String userPassword) throws Exception {

@@ -88,7 +88,8 @@ public class MessageDao {
 		resultSet = preparedStatement.executeQuery();
 		resultSet.next();
 		
-//		connection.close();
-		return resultSet.getInt(1);
+		int result = resultSet.getInt(1);
+		connection.close();
+		return result;
 	}
 }
