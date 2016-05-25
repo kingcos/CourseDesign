@@ -6,11 +6,11 @@
 
 > **如何下载？**
 > <br>
-> 点击 Download ZIP 即可下载整个仓库（不支持手机版），由于众所周知的原因，下载速度略慢。
+> 点击 clone or download，选择 Download ZIP 即可下载整个仓库（不支持手机版），由于众所周知的原因，下载速度略慢。
 > <br>
-> 如果你连 Download ZIP 都找不到...
+> 如果你连 clone or download 都找不到...
 > <br>
-> 那么按 Ctrl + F 搜索页面中的 Download ZIP 并点击下载即可
+> 那么按 Ctrl + F 搜索页面中的 download 并点击下载即可
 > <br>
 > **中文乱码？**
 > <br>
