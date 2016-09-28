@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/four_arithmetic_operation.iml" filepath="$PROJECT_DIR$/.idea/modules/four_arithmetic_operation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/four_arithmetic_operation_main.iml" filepath="$PROJECT_DIR$/.idea/modules/four_arithmetic_operation_main.iml" group="four_arithmetic_operation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/four_arithmetic_operation_test.iml" filepath="$PROJECT_DIR$/.idea/modules/four_arithmetic_operation_test.iml" group="four_arithmetic_operation" />
+    </modules>
+  </component>
+</project>
