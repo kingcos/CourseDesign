@@ -12,6 +12,10 @@ public class MainAction extends ActionSupport {
     private int operator;
     private String result;
 
+    /**
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute() throws Exception {
         String res = calculate();
@@ -19,6 +23,10 @@ public class MainAction extends ActionSupport {
         return SUCCESS;
     }
 
+    /**
+     * 将计算结果作为字符串返回。
+     * @return
+     */
     public String calculate() {
         String res = "0.0";
 

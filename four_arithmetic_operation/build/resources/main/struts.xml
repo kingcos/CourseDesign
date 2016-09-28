@@ -5,8 +5,8 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="four_arithmetic_operation" extends="struts-default" >
-        <action name="Calculate"  class="com.maimieng.action.MainAction">
+    <package name="four_arithmetic_operation" extends="struts-default">
+        <action name="Calculate" class="com.maimieng.action.MainAction">
             <result name="success">/index.jsp</result>
         </action>
     </package>

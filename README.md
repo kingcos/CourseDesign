@@ -4,6 +4,8 @@
 
 此仓库内的项目均是本人在校期间所做的小项目，仅为开源，共享，方便同学们交流。
 
+各项目的配置，可参考相应的 README.md 文件，有任何
+
 > **如何下载？**
 > <br>
 > 点击 clone or download，选择 Download ZIP 即可下载整个仓库（不支持手机版），由于众所周知的原因，下载速度略慢。
@@ -18,6 +20,7 @@
 
 ## 目录
 
+- [Four Arithmetic Operation](./four_arithmetic_operation)
 - [Java BBS](./JavaBBS)
 - [Java Tracert 4 Windows](./JavaTracert)
 - [iBlog](./iBlog)
