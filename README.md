@@ -4,7 +4,7 @@
 
 此仓库内的项目均是本人在校期间所做的小项目，仅为开源，共享，方便同学们交流。
 
-各项目的配置，可参考相应的 README.md 文件，有任何
+各项目的配置，可参考相应的 README.md 文件。
 
 > **如何下载？**
 > <br>
@@ -20,6 +20,7 @@
 
 ## 目录
 
+- [Dynamic Method Invocation](./dynamic_method_invocation)
 - [Four Arithmetic Operation](./four_arithmetic_operation)
 - [Java BBS](./JavaBBS)
 - [Java Tracert 4 Windows](./JavaTracert)

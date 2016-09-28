@@ -1,0 +1,17 @@
+group 'com.maimieng'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    // https://mvnrepository.com/artifact/org.apache.struts/struts2-core
+    compile group: 'org.apache.struts', name: 'struts2-core', version: '2.3.30'
+}
