@@ -1,4 +1,4 @@
-# Dynamic Method Invocation
+# Struts 2 Interceptor Demo
 
 ## 关于
 
@@ -14,13 +14,8 @@
 - Struts 2
 - Gradle
 - HTML
-- CSS
 
 ##### [作业文档](Doc/)
-
-##### Update
-
-添加登录验证拦截器。
 
 ## MIT License
 

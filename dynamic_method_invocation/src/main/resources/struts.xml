@@ -6,10 +6,22 @@
 
 <struts>
     <package name="dynamic_method_invocation" extends="struts-default">
+        <interceptors>
+            <interceptor name="login_validate" class="com.maimieng.interceptor.LoginValidate"/>
+        </interceptors>
+
         <action name="user_*" class="com.maimieng.action.MainAction" method="{1}">
-            <result name="success">/login_success.jsp</result>
+            <result name="success" type="redirect">show_details.action</result>
             <result name="login">/login.jsp</result>
             <result name="register_failed">/index.jsp</result>
+        </action>
+
+        <action name="show_details" class="com.maimieng.action.ShowDetailsAction">
+            <result name="success">/login_success.jsp</result>
+            <result name="login">/login.jsp</result>
+
+            <interceptor-ref name="defaultStack" />
+            <interceptor-ref name="login_validate"/>
         </action>
     </package>
 </struts>
