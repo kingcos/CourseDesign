@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/struts2_interceptor_demo.iml" filepath="$PROJECT_DIR$/.idea/modules/struts2_interceptor_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/struts2_interceptor_demo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/struts2_interceptor_demo_main.iml" group="struts2_interceptor_demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/struts2_interceptor_demo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/struts2_interceptor_demo_test.iml" group="struts2_interceptor_demo" />
+    </modules>
+  </component>
+</project>
