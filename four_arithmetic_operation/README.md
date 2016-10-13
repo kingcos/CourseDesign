@@ -16,6 +16,8 @@
 - HTML
 - CSS
 
+##### [作业文档](../dynamic_method_invocation/Doc)
+
 ## MIT License
 
 Copyright (c) [2016] [kingcos]
