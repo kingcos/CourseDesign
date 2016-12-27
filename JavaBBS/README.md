@@ -41,6 +41,15 @@
 
 *以上 Bug 修改只是时间问题，预计将在两日内修复*
 
+#### [Powered by Struts2](./BBS_with_ Struts2)
+
+##### 技能树
+
+- Java EE
+- Struts 2
+- SQL
+- HTML
+
 ## MIT License
 
 Copyright (c) [2016] [kingcos]

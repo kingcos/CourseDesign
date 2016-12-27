@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts2" extends="struts-default">
+		<action name="login" class="com.maimieng.Action.LoginAction">
+			<result name="Failure">/jsp/Login/Failure.jsp</result>
+			<result name="Success" type="chain">listms</result>
+		</action>
+		
+		<action name="register" class="com.maimieng.Action.RegisterAction">
+			<result name="Failure">/jsp/Register/Failure.jsp</result>
+			<result name="Success" type="chain">listms</result>
+		</action>
+		
+		<action name="listms" class="com.maimieng.Action.ListMsAction">
+			<result name="Success">/jsp/MsRe/ListMs.jsp</result>
+		</action>
+		
+		<action name="createms" class="com.maimieng.Action.CreateMsAction">
+			<result name="Failure">/jsp/MsRe/MsFailure.jsp</result>
+			<result name="Success" type="chain">listms</result>
+		</action>
+		
+		<action name="getms" class="com.maimieng.Action.GetMessageAction">
+			<result name="Success">/jsp/MsRe/MessageDetail.jsp</result>
+		</action>
+		
+		<action name="replyms" class="com.maimieng.Action.ReplyMsAction">
+			<result name="Failure">/jsp/MsRe/ReFailure.jsp</result>
+			<result name="Success" type="chain">getms</result>
+		</action>
+		
+	</package>
+</struts> 
