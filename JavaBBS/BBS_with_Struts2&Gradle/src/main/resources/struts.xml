@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+        <interceptors>
+            <interceptor name="userValidate" class="com.maimieng.interceptor.LoginValidate"/>
+        </interceptors>
+
+        <action name="login" class="com.maimieng.Action.UserAction" method="login">
+            <result name="success" type="redirect">/listms</result>
+            <result name="loginFailed">/jsp/Login/Failure.jsp</result>
+            <result name="input">/jsp/Login/Login.jsp</result>
+        </action>
+
+        <action name="register" class="com.maimieng.Action.UserAction" method="register">
+            <result name="success" type="redirect">/listms</result>
+            <result name="registerFailed">/jsp/Register/Failure.jsp</result>
+            <result name="input">/jsp/Register/Register.jsp</result>
+        </action>
+
+        <action name="listms" class="com.maimieng.Action.MessageAction" method="listms">
+            <result name="success">/jsp/MsRe/ListMs.jsp</result>
+            <result name="login" type="redirect">/jsp/Login/Login.jsp</result>
+
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="userValidate"/>
+        </action>
+
+        <action name="createms" class="com.maimieng.Action.MessageAction" method="createms">
+            <result name="Failure">/jsp/MsRe/MsFailure.jsp</result>
+            <result name="success" type="redirect">listms</result>
+            <result name="login" type="redirect">/jsp/Login/Login.jsp</result>
+
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="userValidate"/>
+        </action>
+
+        <action name="getms" class="com.maimieng.Action.MessageAction" method="getms">
+            <result name="success">/jsp/MsRe/MessageDetail.jsp</result>
+            <result name="login" type="redirect">/jsp/Login/Login.jsp</result>
+
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="userValidate"/>
+        </action>
+
+        <action name="deletems" class="com.maimieng.Action.MessageAction" method="deletems">
+            <result name="success" type="redirect">listms</result>
+            <result name="login" type="redirect">/jsp/Login/Login.jsp</result>
+
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="userValidate"/>
+        </action>
+
+        <action name="reply" class="com.maimieng.Action.ReplyAction" method="reply">
+            <result name="Failure">/jsp/MsRe/ReFailure.jsp</result>
+            <result name="success" type="chain">getms</result>
+
+            <result name="login">/login.jsp</result>
+
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="userValidate"/>
+        </action>
+
+    </package>
+
+</struts>

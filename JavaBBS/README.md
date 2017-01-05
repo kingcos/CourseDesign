@@ -39,9 +39,7 @@
 - 注册时不输入用户名，密码也可注册（未设置非空字段及相应处理）
 - 登录失败提示信息不全
 
-*以上 Bug 修改只是时间问题，预计将在两日内修复*
-
-#### [Powered by Struts2](./BBS_with_Struts2)
+#### [Powered by Struts 2](./BBS_with_Struts2)
 
 ##### 技能树
 
@@ -49,6 +47,17 @@
 - Struts 2
 - SQL
 - HTML
+
+#### [Powered by Struts 2 & Gradle](./BBS_with_Struts2&Gradle)
+
+##### 技能树
+
+- Java EE
+- Struts 2
+- SQL
+- HTML
+- JavaScript
+- Gradle
 
 ## MIT License
 
